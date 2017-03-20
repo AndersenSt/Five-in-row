@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { Router, Route, hashHistory } from 'react-router';
 
@@ -11,9 +10,10 @@ import initialState from './initialState';
 import StartPage from './containers/StartPage';
 import GamePage from './containers/GamePage';
 import GameOverPage from './containers/GameOverPage';
+import middleware from './middleware';
 
+const store = middleware(createStore)(reducer, initialState);
 
-const store = createStore(reducer, initialState);
 ReactDom.render(
     <Provider store={store}>
         <Router history={hashHistory}>
