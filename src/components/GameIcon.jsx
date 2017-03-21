@@ -5,7 +5,9 @@ import CvgO from 'material-ui/svg-icons/Image/panorama-fish-eye';
 import { blue500, pinkA400 } from 'material-ui/styles/colors';
 
 class GameIcon extends React.Component {
-     addIcon(value) {
+     getIcon() {
+        const {value} = this.props;
+
         if(value === 1) {
             return (<CvgX color={blue500}/>);
         }
@@ -17,7 +19,7 @@ class GameIcon extends React.Component {
     render() {
         return (
             <div>
-                {this.addIcon(this.props.value)}
+                {this.getIcon()}
             </div>
         );
     }

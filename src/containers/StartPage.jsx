@@ -9,7 +9,7 @@ import { setSizeGameBoard } from '../actions';
 
 class StartPage extends React.Component {
     start(value) {
-        hashHistory.push(`/${value}`)
+        hashHistory.push("/game")
     }
     
      getSize(size) {
@@ -48,14 +48,14 @@ class StartPage extends React.Component {
                     className="button"
                     label="Start"
                     primary={true}
-                    onClick={() => this.start("game")}
+                    onClick={() => this.start()}
                 />
             </Paper>
         );
     }
 }
 
-const mapStateToProps = state => ({...state});
+const mapStateToProps = ({ boardSize }) => ({ boardSize });
 
 const mapDispatchToProps = dispatch => ({
     setSizeGameBoard: bindActionCreators(setSizeGameBoard, dispatch)

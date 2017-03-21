@@ -8,10 +8,8 @@ const middleware = store => next => action => {
     const x = action.x;
     const y = action.y;
     const newSign = state.currentTurn === state.PLAYER_ONE
-                    ?
-                    state.PLAYER_TWO
-                    :
-                    state.PLAYER_ONE;
+                    ? state.PLAYER_TWO
+                    : state.PLAYER_ONE;
            
     const newRow = state.gameBoard[y].slice(0);
     newRow[x] = newSign;
@@ -42,7 +40,7 @@ const middleware = store => next => action => {
         gameBoard,
         winner,
         loser
-    })
-}
+    });
+};
 
 export default middleware;

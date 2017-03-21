@@ -11,7 +11,7 @@ import GameIcon from '../components/GameIcon';
 class GameOverPage extends React.Component {
     goToStart(value) {
         this.props.resetGameBoard();
-        hashHistory.push(`${value}`);
+        hashHistory.push("/");
     }
 
     render() {
@@ -30,7 +30,7 @@ class GameOverPage extends React.Component {
                     className="button"
                     label="go to start page"
                     primary={true}
-                    onClick={() => this.goToStart("/")}
+                    onClick={() => this.goToStart()}
                 />
             </Paper>
         );
