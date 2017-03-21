@@ -1,9 +1,7 @@
 import React from 'react';
 
 import Paper from 'material-ui/Paper';
-import CvgX from 'material-ui/svg-icons/Content/clear';
-import CvgO from 'material-ui/svg-icons/Image/panorama-fish-eye';
-import { blue500, pinkA400 } from 'material-ui/styles/colors';
+import GameIcon from './GameIcon';
 
 class Tile extends React.PureComponent {
     constructor(props) {
@@ -20,15 +18,6 @@ class Tile extends React.PureComponent {
         }
     }
 
-    addIcon(value) {
-        if(value === 1) {
-            return (<CvgX color={blue500}/>);
-        }
-        if(value === 2) {
-            return (<CvgO color={pinkA400}/>);
-        }
-    }
-
     render() {
         return (
             <Paper 
@@ -38,7 +27,7 @@ class Tile extends React.PureComponent {
                 className={this.props.value === "" ? "tile-empty" : "tile-full"}
                 onClick={() => this.tileClick(this.props)}
             >
-                {this.addIcon(this.props.value)}
+                <GameIcon value={this.props.value} />
             </Paper>
         );
     }
